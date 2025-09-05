@@ -1,0 +1,949 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamnicant Pty Ltd</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/Logo/favicon.png" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom Scrollbar -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Animation -->
+    <link rel="stylesheet" href="css/animations.min.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="fonts/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="fonts/themify-icons/themify-icons.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        body {
+            /* font-family: 'Arial', sans-serif; */
+            /* line-height: 1.4; */
+            color: #333;
+        }
+        .p-4{
+            margin-left: 0.95rem;
+            margin-right: -0.65rem;
+        }
+
+        .modal-title{
+            margin-bottom: -3rem !important;
+            margin-left: 0.95rem ;
+
+        }
+        .form-label{
+            margin-bottom: -1.75rem;
+        }
+        /* Add spacing below Phone & Service row */
+        #quoteForm .row.phone-service-row 
+        {
+            margin-bottom: -1.75rem; /* adjust as needed */
+
+        }
+        #quoteForm .row.project-row 
+        {
+            margin-bottom: -1.75rem; /* adjust as needed */
+        }
+        #quoteForm .row.reference-row 
+        {
+            margin-bottom: -1.75rem; /* adjust as needed */
+        }    
+       
+        button[type="submit"] {
+        margin-right: 1.2rem !important;
+        }
+
+        .input-group .input-group-text,
+        .input-group .form-control {
+            height: 45px;            /* Set equal height */
+            border-radius: 0.375rem; /* Bootstrap default */
+            border: 1px solid #ced4da;
+            margin-bottom: 0.75rem;
+        }
+
+        .input-group .input-group-text {
+            background-color: #f8f9fa; /* optional */
+            display: flex;
+            align-items: center;       /* vertically center icon */
+            justify-content: center;
+            min-width: 45px;           /* make square if needed */
+            padding: 0;                /* remove extra padding */
+        }
+        #quoteModal .form-select {
+            height: 45px;              /* match input-group height */
+            border-radius: 0.375rem;   /* consistent rounded corners */
+            border: 1px solid #ced4da; /* same border as inputs */
+            font-size: 0.95rem;        /* optional: keep text size consistent */
+            padding: 0.375rem 0.75rem; /* adjust padding for vertical centering */
+        }
+
+        .btn-close {
+            box-sizing: content-box;
+            width: 24px;       /* Decreased from ~38px (1cm) to 24px */
+            height: 24px;      /* Same as width for square button */
+            padding: 6px;      /* Decreased proportionally */
+            color: #000;
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center / 16px auto no-repeat;
+            border: 0;
+            border-radius: 4px; /* Slightly rounded corners */
+            opacity: 0.5;
+        }
+        .btn-close:hover {
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center / 16px auto no-repeat !important;
+            opacity: 1; /* Increase opacity for better visibility */
+        }
+
+        .btn-close:focus {
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center / 16px auto no-repeat !important;
+            opacity: 1;
+            outline: 2px solid rgba(0, 0, 0, 0.3); /* Optional: add focus outline */
+            outline-offset: 2px;
+        }
+        .service-area-inner-page {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .nav-pills .nav-link {
+            background: white;
+            color: #495057;
+            border: 2px solid #dee2e6;
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: left;
+            width: 100%;
+        }
+        
+        .nav-pills .nav-link:hover {
+            background: #f8f9fa;
+            border-color: #007bff;
+            transform: translateX(5px);
+        }
+        
+        .nav-pills .nav-link.active {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            border-color: #007bff;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        
+        .tab-content {
+            min-height: 500px;
+            line-height: 1.8; /* Adjust this value as needed */
+        }
+        
+        .tab-content p {
+            line-height: 1.5; /* Increase or decrease this value to adjust spacing */
+        }
+        .tab-content ul.normal-bullet li {
+            margin-bottom: 10px !important; /* Adds space below each list item */
+        }
+
+        .tab-pane {
+            background: white;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 12px !important;
+        }
+        
+        .service-title {
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .service-image {
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f3f4;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list i {
+            color: #28a745;
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .form-select {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 2px solid #dee2e6;
+            background: white;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        
+        .service-description {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #495057;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        
+	</style>
+</head>
+
+<body>
+
+    <!-- Loading -->
+    <div id="pq-loading">
+        <div id="pq-loading-center">
+            <img src="images/Logo/logo.png" alt="Loading">
+        </div>
+    </div>
+    <!-- Loading -->
+
+    <!-- Header -->
+    <header id="pq-header" class="pq-header-style-3 pq-has-sticky home-header">
+        <div class="pq-top-header top-style-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div class="pq-top-right">
+                            <div class="pq-header-time">
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-location-dot"></i>
+                                        <span>444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pq-header-social">
+                                <ul>
+                                    <li><a href="https://www.instagram.com/jamnicant3804/"><i
+                                                class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right  ">
+                        <div class="pq-header-contact text-right">
+                            <ul>
+                                <li>
+                                    <a href="tel:0419895835">
+                                        <i class="fas fa-phone"></i>
+                                        <span> 0419 895 835</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:tony@jamnicant.com.au">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>tony@jamnicant.com.au</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pq-bottom-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand" href="./">
+                                <img class="img-fluid logo" src="images/Logo/logo.png" alt="jamnicant">
+                            </a>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <div id="pq-menu-contain" class="pq-menu-contain">
+                                    <ul id="pq-main-menu" class="navbar-nav ml-auto">
+                                        <li class="menu-item">
+                                            <a href="index.html" aria-current="page">Home</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="about_us.html">About Us</a>
+                                        </li>
+                                        <li class="menu-item current-menu-item menu-item-has-children">
+                                            <a href="services.html">Services</a><i class="fa fa-chevron-down pq-submenu-icon"></i>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-has-children">
+                                                    <a href="services.html?tab=house-slabs">House Slabs</a>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children">
+                                                    <a href="services.html?tab=excavation">Excavation</a>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children">
+                                                    <a href="services.html?tab=footings">Footings</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="services.html?tab=paving">Paving</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="services.html?tab=earthworks">Earthworks</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="gallery.html">Gallery</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="contact_us.html">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="pq-btn-container">
+                                <a href="#" class="pq-button pq-button-flat">
+                                    <div class="pq-button-block">
+                                        <span class="pq-button-text">Get Quote</span>
+                                        <span class="pq-button-line-right"></span>
+                                        <i class="ion ion-ios-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header -->
+
+    <!-- Breadcrumb -->
+    <div class="pq-breadcrumb">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav aria-label="breadcrumb">
+                        <div class="pq-breadcrumb-title">
+                            <h1>Carpets &amp; Rugs</h1>
+                        </div>
+                        <div class="pq-breadcrumb-container">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html"><i class="fas fa-home me-2"></i>Home</a>
+                                </li>
+                                <li class="breadcrumb-item active">Our Services</li>
+                            </ol>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb -->
+    <!-- Services -->
+    <div class="service-area-inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <!-- Mobile Dropdown -->
+                    <div class="d-block d-lg-none mb-3">
+                        <select class="form-select" id="mobile-service-tab">
+                            <option value="house-slabs">House Slabs</option>
+                            <option value="excavation">Excavation</option>
+                            <option value="footings">Footings</option>
+                            <option value="paving">Paving</option>
+                            <option value="earthworks">Earthworks</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Desktop Sticky Vertical Tabs -->
+                    <div class="position-sticky d-none d-lg-block" style="top: 100px;">
+                        <div class="nav flex-column nav-pills" id="service-tab" role="tablist" aria-orientation="vertical">
+                            <button class="nav-link active" id="house-slabs" data-bs-toggle="pill" data-bs-target="#house-slabs-content" type="button" role="tab">
+                                <i class="fas fa-home me-2"></i>House Slabs
+                            </button>
+                            <button class="nav-link" id="excavation" data-bs-toggle="pill" data-bs-target="#excavation-content" type="button" role="tab">
+                                <i class="fas fa-paint-roller me-2"></i>Excavation
+                            </button>
+                            <button class="nav-link" id="footings" data-bs-toggle="pill" data-bs-target="#footings-content" type="button" role="tab">
+                                <i class="fas fa-spray-can me-2"></i>Footings
+                            </button>
+                            <button class="nav-link" id="paving" data-bs-toggle="pill" data-bs-target="#paving-content" type="button" role="tab">
+                                <i class="fas fa-magic me-2"></i>Paving
+                            </button>
+                            <button class="nav-link" id="earthworks" data-bs-toggle="pill" data-bs-target="#earthworks-content" type="button" role="tab">
+                                <i class="fas fa-tree me-2"></i>Earthworks
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-9">
+                    <div class="tab-content" id="service-tabContent">
+                        <!-- Lazy-loaded content containers -->
+                        <div class="tab-pane fade show active p-4 border rounded" id="house-slabs-content" role="tabpanel" aria-labelledby="house-slabs" data-loaded="false"></div>
+                        <div class="tab-pane fade p-4 border rounded" id="excavation-content" role="tabpanel" aria-labelledby="excavation" data-loaded="false"></div>
+                        <div class="tab-pane fade p-4 border rounded" id="footings-content" role="tabpanel" aria-labelledby="footings" data-loaded="false"></div>
+                        <div class="tab-pane fade p-4 border rounded" id="paving-content" role="tabpanel" aria-labelledby="paving" data-loaded="false"></div>
+                        <div class="tab-pane fade p-4 border rounded" id="earthworks-content" role="tabpanel" aria-labelledby="earthworks" data-loaded="false"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services -->
+
+<!-- Footer -->
+    <footer id="pq-footer">
+        <div class="pq-footer-style-1">
+            <div class="pq-subscribe align-items-center">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="pq-subscribe-bg">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="pq-footer-logo">
+                                            <img src="images/Logo/logo.png" class="pq-footer-logo"
+                                                alt="jamnicant-footer-logo">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 align-self-center">
+                                        <div class="pq-subscribe-from">
+                                            <form>
+                                                <div class="subscribe-form">
+                                                    <input type="email" name="EMAIL" placeholder="Your email address"
+                                                        class="form-control" required="">
+                                                    <input class="submit" type="submit" value="Subscribe">
+                                                    <i class="ion-ios-paperplane"></i>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pq-footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="widget">
+                                <h4 class="footer-title">About Jamnicant</h4>
+                                <p>With over 40 years of experience, Jamnicant provides expert earthmoving and
+                                    construction services across Victoria. Family-owned and operated since 1983.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3  col-md-6">
+                            <div class="widget">
+                                <h4 class="footer-title">quick links</h4>
+                                <div class="menu-navigate-menu-container">
+                                    <ul id="menu-navigate-menu" class="menu">
+                                        <li class="menu-item">
+                                            <a href="index.html" aria-current="page">Home</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="about_us.html">About us</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="services.html">Services</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="gallery.html">Gallery</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="contact_us.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3  col-md-6">
+                            <div class="widget">
+                                <h4 class="footer-title">our Services</h4>
+                                <div class="menu-product-menu-container">
+                                    <ul id="menu-product-menu" class="menu">
+                                        <li class="menu-item">
+                                            <a href="services.html?tab=house-slabs">House Slabs</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="services.html?tab=excavation">Excavation</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="services.html?tab=footings">Footings</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="services.html?tab=paving">Paving</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="services.html?tab=earthworks">Earthworks</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3  col-md-6">
+                            <div class="widget widget-port-1">
+                                <h4 class="footer-title">contact information</h4>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <ul class="pq-contact">
+                                            <li>
+                                                <i class="fas fa-map-marker"></i>
+                                                <span>444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804</span>
+                                            </li>
+                                            <li>
+                                                <a href="tel:0419895835">
+                                                    <i class="fas fa-phone"></i>
+                                                    <span> 0419 895 835</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="mailto:tony@jamnicant.com.au">
+                                                    <i class="fas fa-envelope"></i>
+                                                    <span>tony@jamnicant.com.au</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.instagram.com/jamnicant3804/">
+                                                    <i class="fab fa-instagram"></i>
+                                                    <span>@jamnicant3804</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pq-copyright-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 align-self-center">
+                            <span class="pq-copyright">Copyright 2025 <a href="./">Jamnicant Pty Ltd</a>. All Rights Reserved. ABN: 32
+                                879 680 306</span>
+                        </div>
+                        <div class="col-md-4 align-self-center">
+                            <span class="pq-copyright">Designed by: <a href="https://uptechwebsolution.com.au/">UpTech
+                                    Solution</a>.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->
+
+    <!-- Back To Top -->
+    <div id="back-to-top" class="active">
+        <a class="top" id="top" href="#top">
+            <i class="ion-ios-arrow-up"></i>
+        </a>
+    </div>
+    <!-- Back To Top -->
+
+    <!-- Jquery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Owl Carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Isotope -->
+    <script src="js/isotope.pkgd.min.js"></script>
+    <!-- Counter -->
+    <script src="js/jquery.countTo.min.js"></script>
+    <!-- Wow -->
+    <script src="js/wow.min.js"></script>
+    <!-- Magnefic Popup -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Custom Scrollbar -->
+    <script src="js/jquery.mCustomScrollbar.min.js"></script>
+    <!-- Custom -->
+    <script src="js/custom.js"></script>
+     <script>
+        const tabContent = {
+            'house-slabs-content': `
+                <h3 class="mb-3">HOUSE SLABS</h3>
+                <h5 class="mb-3">Strong and Durable Foundations</h5>
+                <p>Our house slab services provide sturdy and reliable concrete foundations for residential buildings, ensuring long-lasting structural integrity.</p>
+                <p>Using premium materials and expert techniques, we deliver precise, level, and durable slabs for homes, offices, and commercial properties.</p>
+                <img src="images/service-detail/1.jpg" class="img-fluid mb-3 mt-3" alt="House Slabs" />
+                <h4 class="mb-3">WHAT WE OFFER</h4>
+                <ul class="normal-bullet">
+                    <li><h5>High-Quality Concrete</h5>
+                    <p>Durable concrete mix designed to withstand heavy loads and prevent cracking over time.</p>
+                    </li>
+                    
+                    <li><h5>Precision Leveling</h5>
+                    <p>Accurate leveling and reinforcement to ensure your slab is perfectly flat and structurally sound.</p>
+                    </li>
+                    
+                    <li><h5>Professional Installation</h5>
+                    <p>Expert team handling all stages of slab construction, from formwork to finishing.</p>
+                    </li>
+
+                    <li><h5>Quality Assurance</h5>
+                    <p>Thorough inspection and finishing to guarantee flawless, long-lasting results.</p>
+                    </li>
+                </ul>
+
+                <img src="images/service-detail/6.jpg" class="img-fluid mb-3 mt-3" alt="House Slab Process" />
+
+                <h4 class="mb-3">WHY CHOOSE OUR SLABS?</h4>
+                <ul class="normal-bullet">
+                    <li><h5>Strong Foundations</h5>
+                    <p>Build a reliable base for your home or building with expertly constructed slabs.</p>
+                    </li>
+                    
+                    <li><h5>Durable and Long-Lasting</h5>
+                    <p>Concrete slabs designed to withstand weather, load, and time without compromising integrity.</p>
+                    </li>
+                    
+                    <li><h5>Enhanced Safety</h5>
+                    <p>Even and level surfaces minimize structural risks and ensure stability for your property.</p>
+                    </li>
+                </ul>
+
+                <img src="images/service-detail/7.jpg" class="img-fluid mb-3 mt-3" alt="Slab Results" />
+
+                <h4 class="mb-3">STYLES AND FINISHES</h4>
+                <p>Whether you want a <strong>smooth modern finish</strong> or a <strong>textured surface</strong>, we deliver slabs that combine strength with aesthetics.</p>
+                <h3 class="mb-3">READY TO LAY YOUR SLAB?</h3>
+                <p>Contact us to ensure your foundation is strong and reliable.</p>
+                <p>Call us at <a href="tel:0419 895 835">0419 895 835</a> or Email us at <a href="mailto:tony@jamnicant.com.au">tony@jamnicant.com.au</a> to book a consultation.
+            `,
+            'excavation-content': `
+                <h3 class="mb-3">EXCAVATION</h3>
+                <h5 class="mb-3">Efficient Earthworks and Digging</h5>
+                <p>Our excavation services prepare the ground for construction projects, ensuring precise digging and site readiness.</p>
+                <p>We use modern equipment and skilled operators to handle excavation safely and efficiently for homes, commercial, and industrial projects.</p>
+                <img src="images/service-detail/2.jpg" class="img-fluid mb-3 mt-3" alt="Excavation" />
+                <h4 class="mb-3">OUR EXCAVATION SERVICES</h4>
+                <ul class="normal-bullet">
+                    <li><h6>Site Preparation</h6>
+                    <p>Clear and level the land, removing debris and obstacles for safe and efficient construction.</p>
+                    </li>
+                    
+                    <li><h6>Trenching and Digging</h6>
+                    <p>Precise trenches for foundations, utilities, and drainage systems.</p>
+                    </li>
+                    
+                    <li><h6>Material Handling</h6>
+                    <p>Proper removal and management of excavated material to maintain a clean and organized site.</p>
+                    </li>
+
+                    <li><h6>Safety and Compliance</h6>
+                    <p>Follow all safety protocols to protect workers, equipment, and surrounding property.</p>
+                    </li>
+                </ul>
+
+                <img src="images/service-detail/8.jpg" class="img-fluid mb-3 mt-3" alt="Excavation Equipment" />
+
+                <h4 class="mb-3">WHY CHOOSE OUR EXCAVATION?</h4>
+                <ul class="normal-bullet">
+                    <li><h6>Efficient and Timely</h6>
+                    <p>Projects completed on schedule with minimal disruption.</p>
+                    </li>
+                    
+                    <li><h6>Expert Operators</h6>
+                    <p>Skilled professionals with experience handling all types of excavation projects.</p>
+                    </li>
+                    
+                    <li><h6>Site Safety</h6>
+                    <p>Careful planning and execution to prevent accidents and site damage.</p>
+                    </li>
+                </ul>
+
+                <img src="images/service-detail/9.jpg" class="img-fluid mb-3 mt-3" alt="Excavation Results" />
+
+                <h3 class="mb-3">READY TO START EXCAVATION?</h3>
+                <p>Let us prepare your site for successful construction.</p>
+                <p>Call us at <a href="tel:0419 895 835">0419 895 835</a> or Email us at <a href="mailto:tony@jamnicant.com.au">tony@jamnicant.com.au</a> to book a consultation.
+            `,
+            'footings-content': `
+                <h3 class="mb-3">FOOTINGS</h3>
+                <h5 class="mb-3">Secure Foundations for Your Building</h5>
+                <p>Our footing services provide solid and reliable support for walls and columns, ensuring the safety and durability of your structure.</p>
+                <p>We use reinforced concrete and expert techniques to create footings that meet all structural requirements and building codes.</p>
+                <img src="images/service-detail/3.jpg" class="img-fluid mb-3 mt-3" alt="Footings" />
+                <h4 class="mb-3">OUR FOOTING SERVICES</h4>
+                <ul class="normal-bullet">
+                    <li><h6>Reinforced Concrete Footings</h6>
+                    <p>Strong and durable footings using high-quality reinforced concrete.</p>
+                    </li>
+                    
+                    <li><h6>Precise Layout</h6>
+                    <p>Careful measurement and placement to support structural loads accurately.</p>
+                    </li>
+                    
+                    <li><h6>Formwork and Finishing</h6>
+                    <p>Proper formwork installation and finishing for stability and aesthetics.</p>
+                    </li>
+
+                    <li><h6>Quality Assurance</h6>
+                    <p>Inspections to ensure compliance with engineering standards.</p>
+                    </li>
+                </ul>
+
+                <img src="images/service-detail/10.jpg" class="img-fluid mb-3 mt-3" alt="Footing Construction" />
+
+                <h3 class="mb-3">WHY CHOOSE OUR FOOTINGS?</h3>
+                <ul class="normal-bullet">
+                    <li><h6>Durable and Reliable</h6>
+                    <p>Engineered to last and support your building safely.</p>
+                    </li>
+                    
+                    <li><h6>Expert Installation</h6>
+                    <p>Professional team ensures precise construction and alignment.</p>
+                    </li>
+                    
+                    <li><h6>Compliance Guaranteed</h6>
+                    <p>Footings built to meet all building code requirements.</p>
+                    </li>
+                </ul>
+                <img src="images/service-detail/9.jpg" class="img-fluid mb-3 mt-3" alt="Footings Results" />
+
+                <h3 class="mb-3">BUILD ON A STRONG FOUNDATION</h3>
+                <p>Trust us for expertly constructed footings that ensure your building’s stability.</p>
+                <p>Call us at <a href="tel:0419 895 835">0419 895 835</a> or Email us at <a href="mailto:tony@jamnicant.com.au">tony@jamnicant.com.au</a> to book a consultation.
+            `,
+            'paving-content': `
+                <h3 class="mb-3">PAVING</h3>
+                <h5 class="mb-3">Durable and Attractive Paving Solutions</h5>
+                <p>Our paving services create functional, durable, and visually appealing surfaces for driveways, walkways, and patios.</p>
+                <p>We use high-quality materials and precision techniques to ensure smooth, long-lasting pavements that enhance your property.</p>
+                <img src="images/service-detail/4.jpg" class="img-fluid mb-3 mt-3" alt="Paving" />
+                <h4 class="mb-3">PAVING SERVICES WE OFFER</h4>
+                <ul class="normal-bullet">
+                    <li><h6>Driveways and Paths</h6>
+                    <p>Construct functional and stylish driveways, walkways, and patios with durable materials.</p>
+                    </li>
+                    
+                    <li><h6>Custom Patterns</h6>
+                    <p>Design unique paving patterns to complement your landscape and architecture.</p>
+                    </li>
+                    
+                    <li><h6>Surface Preparation</h6>
+                    <p>Proper leveling, compacting, and base preparation for long-lasting pavements.</p>
+                    </li>
+
+                    <li><h6>Finishing and Sealing</h6>
+                    <p>Final surface treatments to enhance durability and maintain a clean appearance.</p>
+                    </li>
+                </ul>
+
+                <img src="images/service-detail/11.jpg" class="img-fluid mb-3 mt-3" alt="Paving Results" />
+
+                <h3 class="mb-3">WHY CHOOSE OUR PAVING?</h3>
+                <ul class="normal-bullet">
+                    <li><h6>Durable and Low Maintenance</h6>
+                    <p>High-quality paving surfaces built to last with minimal upkeep.</p>
+                    </li>
+                    
+                    <li><h6>Professional Finish</h6>
+                    <p>Neat, level, and visually appealing pavements every time.</p>
+                    </li>
+                    
+                    <li><h6>Enhanced Property Value</h6>
+                    <p>Beautiful paved areas add value and aesthetic appeal to your property.</p>
+                    </li>
+                </ul>
+                <img src="images/service-detail/9.jpg" class="img-fluid mb-3 mt-3" alt="Pavings Results" />
+
+                <h3 class="mb-3">ENHANCE YOUR PROPERTY WITH PROFESSIONAL PAVING</h3>
+                <p>Contact us for expert paving solutions that combine durability and style.</p>
+                <p>Call us at <a href="tel:0419 895 835">0419 895 835</a> or Email us at <a href="mailto:tony@jamnicant.com.au">tony@jamnicant.com.au</a> to book a consultation.
+            `,
+            'earthworks-content': `
+                <h3 class="mb-3">EARTHWORKS</h3>
+                <h5 class="mb-3">Comprehensive Land Development</h5>
+                <p>Our earthworks services prepare your site for construction, landscaping, or infrastructure projects, handling excavation, grading, and soil management efficiently.</p>
+                <p>We use modern machinery and skilled operators to ensure safe, precise, and timely completion of earthworks projects.</p>
+                <img src="images/service-detail/5.jpg" class="img-fluid mb-3 mt-3" alt="Earthworks" />
+                <h4 class="mb-3">OUR EARTHWORKS SERVICES</h4>
+                <ul class="normal-bullet">
+                    <li><h6>Site Grading</h6>
+                    <p>Leveling and sloping the land to proper grades for construction or landscaping.</p>
+                    </li>
+                    
+                    <li><h6>Cut and Fill</h6>
+                    <p>Efficient soil removal and filling to create stable, even surfaces.</p>
+                    </li>
+                    
+                    <li><h6>Soil Stabilization</h6>
+                    <p>Improving soil strength and stability to support structures and prevent erosion.</p>
+                    </li>
+
+                    <li><h6>Drainage Solutions</h6>
+                    <p>Design and implementation of proper drainage systems to manage water flow.</p>
+                    </li>
+                </ul>
+
+                <img src="images/service-detail/14.jpg" class="img-fluid mb-3 mt-3" alt="Earthworks Equipment" />
+
+                <h3 class="mb-3">WHY CHOOSE OUR EARTHWORKS?</h3>
+                <ul class="normal-bullet">
+                    <li><h6>Efficient and Reliable</h6>
+                    <p>Timely completion of projects with minimal disruption.</p>
+                    </li>
+                    
+                    <li><h6>Expert Operators</h6>
+                    <p>Experienced team handling all types of earthworks safely.</p>
+                    </li>
+                    
+                    <li><h6>Comprehensive Solutions</h6>
+                    <p>From grading to drainage, we cover all aspects of site preparation.</p>
+                    </li>
+                </ul>
+                <img src="images/service-detail/9.jpg" class="img-fluid mb-3 mt-3" alt="Earthworks Results" />
+
+                <h3 class="mb-3">PREPARE YOUR SITE FOR SUCCESS</h3>
+                <p>Trust our team to provide professional earthworks that ensure a stable and ready site for your project.</p>
+                <p>Call us at <a href="tel:0419 895 835">0419 895 835</a> or Email us at <a href="mailto:tony@jamnicant.com.au">tony@jamnicant.com.au</a> to book a consultation.
+            `
+        };
+
+
+        // Breadcrumb configuration
+        const breadcrumbConfig = {
+            'house-slabs': {
+                image: 'images/breadcrumb/6.jpg',
+                title: 'House Slabs'
+            },
+            'excavation': {
+                image: 'images/breadcrumb/3.jpg',
+                title: 'Excavation'
+            },
+            'footings': {
+                image: 'images/breadcrumb/7.jpg',
+                title: 'Footings'
+            },
+            'paving': {
+                image: 'images/breadcrumb/8.jpg',
+                title: 'Paving'
+            },
+            'earthworks': {
+                image: 'images/breadcrumb/9.jpg',
+                title: 'Earthworks'
+            },
+        };
+
+        function updateBreadcrumb(tabId) {
+            const breadcrumb = document.querySelector('.pq-breadcrumb');
+            const titleEl = document.querySelector('.pq-breadcrumb-title h1');
+            const labelEl = document.querySelector('.breadcrumb-item.active');
+
+            if (!breadcrumb || !breadcrumbConfig[tabId]) return;
+
+            // Start fade out for background and text
+            breadcrumb.classList.add('fade-out');
+            breadcrumb.classList.remove('fade-in');
+            titleEl.classList.add('fade-out');
+            titleEl.classList.remove('fade-in');
+            labelEl.classList.add('fade-out');
+            labelEl.classList.remove('fade-in');
+
+            // After fade out completes, change content and fade back in
+            setTimeout(() => {
+                breadcrumb.style.backgroundImage = `url('${breadcrumbConfig[tabId].image}')`;
+                titleEl.textContent = breadcrumbConfig[tabId].title;
+                labelEl.textContent = breadcrumbConfig[tabId].title;
+
+                breadcrumb.classList.remove('fade-out');
+                breadcrumb.classList.add('fade-in');
+                titleEl.classList.remove('fade-out');
+                titleEl.classList.add('fade-in');
+                labelEl.classList.remove('fade-out');
+                labelEl.classList.add('fade-in');
+            }, 300);
+        }
+
+        // Load content on tab switch
+        const tabTriggerEls = document.querySelectorAll('[data-bs-toggle="pill"]');
+        tabTriggerEls.forEach(trigger => {
+            trigger.addEventListener('shown.bs.tab', function (e) {
+                const targetId = e.target.getAttribute('data-bs-target').replace('#', '');
+                const targetPane = document.getElementById(targetId);
+                if (targetPane && targetPane.dataset.loaded === "false") {
+                    targetPane.innerHTML = tabContent[targetId];
+                    targetPane.dataset.loaded = "true";
+                }
+                updateBreadcrumb(e.target.id);
+            });
+        });
+
+        // On page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const tabId = params.get('tab') || 'house-slabs';
+
+            const tabButton = document.getElementById(tabId);
+            if (tabButton) {
+                const tab = new bootstrap.Tab(tabButton);
+                tab.show();
+
+                const targetId = tabButton.getAttribute('data-bs-target').replace('#', '');
+                const targetPane = document.getElementById(targetId);
+                if (targetPane && targetPane.dataset.loaded === "false") {
+                    targetPane.innerHTML = tabContent[targetId];
+                    targetPane.dataset.loaded = "true";
+                }
+
+                updateBreadcrumb(tabId);
+            }
+
+            // Sync dropdown
+            const activeTab = document.querySelector('.nav-link.active');
+            const mobileSelect = document.getElementById('mobile-service-tab');
+            if (activeTab && mobileSelect) {
+                mobileSelect.value = activeTab.id;
+            }
+        });
+
+        // Mobile select handling
+        document.getElementById('mobile-service-tab')?.addEventListener('change', function () {
+            const selectedId = this.value;
+            const tabButton = document.getElementById(selectedId);
+            if (tabButton) {
+                const tab = new bootstrap.Tab(tabButton);
+                tab.show();
+                updateBreadcrumb(selectedId);
+            }
+        });
+    </script>
+</body>
+
+<script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script>
+</html>

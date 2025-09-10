@@ -218,6 +218,22 @@
             border-radius: 8px;
             margin-top: 20px;
         }
+        @media (max-width: 991px) {
+            .service-area-inner-page {
+                padding: 30px 0;
+            }
+            
+            .service-title {
+                font-size: 1.5rem;
+            }
+            .p-4{
+                margin-left: 2px;
+                margin-right: 2px;
+            }
+        }
+        .service-content { display: none; }
+        .service-content.active { display: block; }
+        #menu-service-menu li.current-menu-item a { font-weight: bold; }
         
         
 	</style>
@@ -244,13 +260,22 @@
                                 <ul>
                                     <li>
                                         <i class="fas fa-location-dot"></i>
-                                        <span>444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804</span>
+                                        <span>
+                                            <a href="https://maps.app.goo.gl/hvEY7HhKddspJjEH8" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            style="color: #ffffff; text-decoration: none; background-color: transparent;"
+                                            onmouseover="this.style.backgroundColor='transparent';"
+                                            onmouseout="this.style.backgroundColor='transparent';">
+                                            444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804
+                                            </a>
+                                        </span> 
                                     </li>
                                 </ul>
                             </div>
                             <div class="pq-header-social">
                                 <ul>
-                                    <li><a href="https://www.instagram.com/jamnicant3804/"><i
+                                    <li><a href="https://www.instagram.com/jamnicant3804/" target="_blank"><i
                                                 class="fab fa-instagram"></i></a></li>
                                 </ul>
                             </div>
@@ -298,19 +323,39 @@
                                             <a href="services.html">Services</a><i class="fa fa-chevron-down pq-submenu-icon"></i>
                                             <ul class="sub-menu">
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="services.html?tab=house-slabs">House Slabs</a>
+                                                    <a href="services.html?tab=house-slabs"
+                                                    style="color: black !important; text-decoration: none;"
+                                                    onmouseover="this.style.color='#ffffff !important'; this.style.backgroundColor='#d7710f';"
+                                                    onmouseout="this.style.color='#ffffff !important'; this.style.backgroundColor='#ffffff';"
+                                                    >House Slabs</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="services.html?tab=excavation">Excavation</a>
+                                                    <a href="services.html?tab=excavation"
+                                                    style="color: black !important; text-decoration: none;"
+                                                    onmouseover="this.style.color='#ffffff !important'; this.style.backgroundColor='#d7710f';"
+                                                    onmouseout="this.style.color='#ffffff !important'; this.style.backgroundColor='#ffffff';"
+                                                    >Excavation</a>
                                                 </li>
                                                 <li class="menu-item menu-item-has-children">
-                                                    <a href="services.html?tab=footings">Footings</a>
+                                                    <a href="services.html?tab=footings"
+                                                    style="color: black !important; text-decoration: none;"
+                                                    onmouseover="this.style.color='#ffffff !important'; this.style.backgroundColor='#d7710f';"
+                                                    onmouseout="this.style.color='#ffffff !important'; this.style.backgroundColor='#ffffff';"
+                                                    >Footings</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="services.html?tab=paving">Paving</a>
+                                                    <a href="services.html?tab=paving"
+                                                    style="color: black !important; text-decoration: none;"
+                                                    onmouseover="this.style.color='#ffffff !important'; this.style.backgroundColor='#d7710f';"
+                                                    onmouseout="this.style.color='#ffffff !important'; this.style.backgroundColor='#ffffff';"
+                                                    >Paving</a>
                                                 </li>
                                                 <li class="menu-item">
-                                                    <a href="services.html?tab=earthworks">Earthworks</a>
+                                                    <a href="services.html?tab=earthworks"
+                                                    style="color: black !important; text-decoration: none;"
+                                                    onmouseover="this.style.color='#ffffff !important'; this.style.backgroundColor='#d7710f';"
+                                                    onmouseout="this.style.color='#ffffff !important'; this.style.backgroundColor='#ffffff';"
+                                                    >Earthworks</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -324,7 +369,7 @@
                                 </div>
                             </div>
                             <div class="pq-btn-container">
-                                <a href="#" class="pq-button pq-button-flat">
+                                <a class="pq-button pq-button-flat" data-bs-toggle="modal" data-bs-target="#quoteModal">
                                     <div class="pq-button-block">
                                         <span class="pq-button-text">Get Quote</span>
                                         <span class="pq-button-line-right"></span>
@@ -345,8 +390,8 @@
     </header>
     <!-- Header -->
 
-    <!-- Breadcrumb -->
-    <div class="pq-breadcrumb">
+    <!-- breadcrumb -->
+    <div class="pq-breadcrumb service-breadcrumb">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -367,7 +412,7 @@
             </div>
         </div>
     </div>
-    <!-- Breadcrumb -->
+    <!-- breadcrumb -->
     <!-- Services -->
     <div class="service-area-inner-page">
         <div class="container">
@@ -520,7 +565,13 @@
                                         <ul class="pq-contact">
                                             <li>
                                                 <i class="fas fa-map-marker"></i>
-                                                <span>444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804</span>
+                                                <span>
+                                                    <a href="https://maps.app.goo.gl/hvEY7HhKddspJjEH8" 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer">
+                                                    444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804
+                                                    </a>
+                                                </span>
                                             </li>
                                             <li>
                                                 <a href="tel:0419895835">
@@ -535,7 +586,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://www.instagram.com/jamnicant3804/">
+                                                <a href="https://www.instagram.com/jamnicant3804/" target="_blank">
                                                     <i class="fab fa-instagram"></i>
                                                     <span>@jamnicant3804</span>
                                                 </a>
@@ -556,7 +607,7 @@
                                 879 680 306</span>
                         </div>
                         <div class="col-md-4 align-self-center">
-                            <span class="pq-copyright">Designed by: <a href="https://uptechwebsolution.com.au/">UpTech
+                            <span class="pq-copyright">Designed by: <a href="https://uptechwebsolution.com.au/" target="_blank">UpTech
                                     Solution</a>.</span>
                         </div>
                     </div>
@@ -566,6 +617,90 @@
     </footer>
     <!-- Footer -->
 
+    <!-- Quote Modal  -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg animate__animated animate__fadeInDown">
+            <div class="modal-content rounded-4 shadow-lg custom-modal">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold" id="quoteModalLabel">
+                <i class="bi bi-chat-dots-fill me-2 text-primary" ></i>Request a Quote
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="quoteForm" class="p-4 needs-validation" novalidate enctype="multipart/form-data">
+                <div id="formMessage" class="mb-3"></div>
+                <div class="row">
+                <div class="col-md-6" style="max-width: 374px">
+                    <label for="name" class="form-label">Name</label>
+                    <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" required>
+                    <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="max-width: 374px">
+                    <label for="email" class="form-label">Email</label>
+                    <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                </div>
+                <div class="row phone-service-row ">
+                <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone</label>
+                    <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="0400000000" pattern="[0-9]{10}" required>
+                    <div class="invalid-feedback">Please enter a 10-digit phone number.</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <label for="service" class="form-label">Service</label>
+                    <select class="form-select" id="service" name="service" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option>Home Slabs</option>
+                    <option>Excavation</option>
+                    <option>Footings</option>
+                    <option>Paving</option>
+                    <option>Earthworks</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a service.</div>
+                </div>
+                </div>
+                <div class="row project-row">
+                <div class="col-12">
+                    <label for="message" class="form-label">Project Details</label>
+                    <textarea class="form-control" id="message" name="message" rows="3" placeholder="Tell us about your project..." required></textarea>
+                    <div class="invalid-feedback">Please enter project details.</div>
+                </div>
+                </div>
+                <div class="row reference-row">
+                <div class="col-12">
+                    <label for="file" class="form-label">Reference Image (optional)</label>
+                    <input class="form-control" type="file" id="file" name="file" accept=".jpg,.png,.pdf,.doc,.docx">
+                </div>
+                </div>
+                </div>
+                <!-- Cloudflare Turnstile CAPTCHA -->
+                <div class="mt-3" >
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAABm_65qiXbKDXVNR"></div>
+                </div>
+
+                <div class="d-flex justify-content-between" style="margin-top: -0.25rem;">
+                <button type="reset" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                </button>
+                <button type="submit" class="btn btn-primary" style="max-width: 300px">
+                    <i class="bi bi-send-fill me-1"></i> Submit
+                </button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
     <!-- Back To Top -->
     <div id="back-to-top" class="active">
         <a class="top" id="top" href="#top">
@@ -733,7 +868,7 @@
                     <p>Footings built to meet all building code requirements.</p>
                     </li>
                 </ul>
-                <img src="images/service-detail/9.jpg" class="img-fluid mb-3 mt-3" alt="Footings Results" />
+                <img src="images/service-detail/79.jpg" class="img-fluid mb-3 mt-3" alt="Footings Results" />
 
                 <h3 class="mb-3">BUILD ON A STRONG FOUNDATION</h3>
                 <p>Trust us for expertly constructed footings that ensure your building’s stability.</p>
@@ -780,7 +915,7 @@
                     <p>Beautiful paved areas add value and aesthetic appeal to your property.</p>
                     </li>
                 </ul>
-                <img src="images/service-detail/9.jpg" class="img-fluid mb-3 mt-3" alt="Pavings Results" />
+                <img src="images/service-detail/89.jpg" class="img-fluid mb-3 mt-3" alt="Pavings Results" />
 
                 <h3 class="mb-3">ENHANCE YOUR PROPERTY WITH PROFESSIONAL PAVING</h3>
                 <p>Contact us for expert paving solutions that combine durability and style.</p>
@@ -811,7 +946,7 @@
                     </li>
                 </ul>
 
-                <img src="images/service-detail/14.jpg" class="img-fluid mb-3 mt-3" alt="Earthworks Equipment" />
+                <img src="images/service-detail/12.jpg" class="img-fluid mb-3 mt-3" alt="Earthworks Equipment" />
 
                 <h3 class="mb-3">WHY CHOOSE OUR EARTHWORKS?</h3>
                 <ul class="normal-bullet">
@@ -827,7 +962,7 @@
                     <p>From grading to drainage, we cover all aspects of site preparation.</p>
                     </li>
                 </ul>
-                <img src="images/service-detail/9.jpg" class="img-fluid mb-3 mt-3" alt="Earthworks Results" />
+                <img src="images/service-detail/99.jpg" class="img-fluid mb-3 mt-3" alt="Earthworks Results" />
 
                 <h3 class="mb-3">PREPARE YOUR SITE FOR SUCCESS</h3>
                 <p>Trust our team to provide professional earthworks that ensure a stable and ready site for your project.</p>
@@ -836,14 +971,14 @@
         };
 
 
-        // Breadcrumb configuration
+        // breadcrumb configuration
         const breadcrumbConfig = {
             'house-slabs': {
                 image: 'images/breadcrumb/6.jpg',
                 title: 'House Slabs'
             },
             'excavation': {
-                image: 'images/breadcrumb/3.jpg',
+                image: 'images/breadcrumb/23.jpg',
                 title: 'Excavation'
             },
             'footings': {
@@ -860,7 +995,7 @@
             },
         };
 
-        function updateBreadcrumb(tabId) {
+        function updatebreadcrumb(tabId) {
             const breadcrumb = document.querySelector('.pq-breadcrumb');
             const titleEl = document.querySelector('.pq-breadcrumb-title h1');
             const labelEl = document.querySelector('.breadcrumb-item.active');
@@ -900,7 +1035,7 @@
                     targetPane.innerHTML = tabContent[targetId];
                     targetPane.dataset.loaded = "true";
                 }
-                updateBreadcrumb(e.target.id);
+                updatebreadcrumb(e.target.id);
             });
         });
 
@@ -921,7 +1056,7 @@
                     targetPane.dataset.loaded = "true";
                 }
 
-                updateBreadcrumb(tabId);
+                updatebreadcrumb(tabId);
             }
 
             // Sync dropdown
@@ -939,7 +1074,7 @@
             if (tabButton) {
                 const tab = new bootstrap.Tab(tabButton);
                 tab.show();
-                updateBreadcrumb(selectedId);
+                updatebreadcrumb(selectedId);
             }
         });
     </script>

@@ -26,6 +26,92 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Responsive -->
     <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .p-4{
+            margin-left: 0.95rem;
+            margin-right: -0.65rem;
+        }
+
+        .modal-title{
+            margin-bottom: -3rem !important;
+            margin-left: 0.95rem ;
+        }
+        .form-label{
+            margin-bottom: -1.75rem;
+        }
+        /* Add spacing below Phone & Service row */
+        #quoteForm .row.phone-service-row 
+        {
+            margin-bottom: -1.75rem; /* adjust as needed */
+
+        }
+        #quoteForm .row.project-row 
+        {
+            margin-bottom: -1.75rem; /* adjust as needed */
+        }
+        #quoteForm .row.reference-row 
+        {
+            margin-bottom: -1.75rem; /* adjust as needed */
+        }
+        
+        .input-group .input-group-text,
+        .input-group .form-control {
+            height: 45px;            /* Set equal height */
+            border-radius: 0.375rem; /* Bootstrap default */
+            border: 1px solid #ced4da;
+            margin-bottom: 0rem;    
+
+        }
+       
+        button[type="submit"]{
+            margin-right: 1.2rem !important;
+        }
+        .input-group .input-group-text,
+        .input-group .form-control {
+            height: 45px;            /* Set equal height */
+            border-radius: 0.375rem; /* Bootstrap default */
+            border: 1px solid #ced4da;
+        }
+
+        .input-group .input-group-text {
+            background-color: #f8f9fa; /* optional */
+            display: flex;
+            align-items: center;       /* vertically center icon */
+            justify-content: center;
+            min-width: 45px;           /* make square if needed */
+            padding: 0;                /* remove extra padding */
+        }
+        #quoteModal .form-select {
+            height: 45px;              /* match input-group height */
+            border-radius: 0.375rem;   /* consistent rounded corners */
+            border: 1px solid #ced4da; /* same border as inputs */
+            font-size: 0.95rem;        /* optional: keep text size consistent */
+            padding: 0.375rem 0.75rem; /* adjust padding for vertical centering */
+        }
+
+        .btn-close {
+            box-sizing: content-box;
+            width: 24px;       /* Decreased from ~38px (1cm) to 24px */
+            height: 24px;      /* Same as width for square button */
+            padding: 6px;      /* Decreased proportionally */
+            color: #000;
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center / 16px auto no-repeat;
+            border: 0;
+            border-radius: 4px; /* Slightly rounded corners */
+            opacity: 0.5;
+        }
+        .btn-close:hover {
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center / 16px auto no-repeat !important;
+            opacity: 1; /* Increase opacity for better visibility */
+        }
+
+        .btn-close:focus {
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center / 16px auto no-repeat !important;
+            opacity: 1;
+            outline: 2px solid rgba(0, 0, 0, 0.3); /* Optional: add focus outline */
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,13 +135,22 @@
                                 <ul>
                                     <li>
                                         <i class="fas fa-location-dot"></i>
-                                        <span>444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804</span>
+                                        <span>
+                                            <a href="https://maps.app.goo.gl/hvEY7HhKddspJjEH8" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            style="color: #ffffff; text-decoration: none; background-color: transparent;"
+                                            onmouseover="this.style.backgroundColor='transparent';"
+                                            onmouseout="this.style.backgroundColor='transparent';">
+                                            444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804
+                                            </a>
+                                        </span> 
                                     </li>
                                 </ul>
                             </div>
                             <div class="pq-header-social">
                                 <ul>
-                                    <li><a href="https://www.instagram.com/jamnicant3804/"><i
+                                    <li><a href="https://www.instagram.com/jamnicant3804/" target="_blank"><i
                                                 class="fab fa-instagram"></i></a></li>
                                 </ul>
                             </div>
@@ -129,7 +224,7 @@
                                 </div>
                             </div>
                             <div class="pq-btn-container">
-                                <a href="#" class="pq-button pq-button-flat">
+                                <a class="pq-button pq-button-flat" data-bs-toggle="modal" data-bs-target="#quoteModal">
                                     <div class="pq-button-block">
                                         <span class="pq-button-text">Get Quote</span>
                                         <span class="pq-button-line-right"></span>
@@ -150,8 +245,8 @@
     </header>
     <!-- Header -->
 
-    <!-- Breadcrumb -->
-    <div class="pq-breadcrumb">
+    <!-- breadcrumb -->
+    <div class="pq-breadcrumb about-breadcrumb">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -172,7 +267,7 @@
             </div>
         </div>
     </div>
-    <!-- Breadcrumb -->
+    <!-- breadcrumb -->
 
    <!-- About Us -->
     <section class="about-us">
@@ -235,43 +330,51 @@
                         <h5 class="pq-floating-heading wow animated zoomIn">Quality Earthmoving Equipment</h5>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 pt-5">
-                    <div class="sx-icon-box-wraper p-a30 center bg-white m-b30">
-                        <h3 class="sx-tilte">Our Mission</h3>
-                        <p>At Jamnicant Pty Ltd, our mission is to deliver reliable and high-quality construction services, 
-                            including home slabs, excavation, footings, paving, and earthworks. We are dedicated to building 
-                            strong foundations that support long-lasting communities.</p>
-                    </div>
-                </div>
-    
-                <!-- Our Vision -->
-                <div class="col-lg-4 col-md-6 col-sm-12 pt-5">
-                    <div class="sx-icon-box-wraper p-a30 center bg-white m-b30">
-                        <h3 class="sx-tilte">Our Vision</h3>
-                        <p>Our vision is to become a trusted leader in the construction industry, recognized for precision, 
-                            innovation, and client-focused service. We aim to shape the future of infrastructure with projects 
-                            that stand the test of time</p>
-                    </div>
-                </div>
-    
-                <!-- Our Values -->
-                <div class="col-lg-4 col-md-12 col-sm-12 pt-5">
-                    <div class="sx-icon-box-wraper p-a30 center bg-white m-b30">
-                        <h3 class="sx-tilte">Our Values</h3>
-                        <p>We uphold integrity, safety, and excellence in every project. Guided by teamwork and commitment, 
-                            Jamnicant Pty Ltd values strong relationships with clients and ensures every build reflects quality 
-                            and professionalism.</p>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
-    </section>
-    <!-- About Us -->
+    </div>
+</section>
+<!-- About Us -->
+
+<!-- Our mission, vision, values -->
+
+<div class="container">
+    <div class="row align-items-center flex-column-reverse flex-lg-row">
+    <div class="col-lg-4 col-md-6 col-sm-12 pt-1">
+        <div class="sx-icon-box-wraper p-a30 center bg-white m-b30">
+            <h3 class="sx-tilte">Our Mission</h3>
+            <p>At Jamnicant Pty Ltd, our mission is to deliver reliable and high-quality construction services, 
+                including home slabs, excavation, footings, paving, and earthworks. We are dedicated to building 
+                strong foundations that support long-lasting communities.</p>
+        </div>
+    </div>
+
+    <!-- Our Vision -->
+    <div class="col-lg-4 col-md-6 col-sm-12 pt-1">
+        <div class="sx-icon-box-wraper p-a30 center bg-white m-b30">
+            <h3 class="sx-tilte">Our Vision</h3>
+            <p>Our vision is to become a trusted leader in the construction industry, recognized for precision, 
+                innovation, and client-focused service. We aim to shape the future of infrastructure with projects 
+                that stand the test of time</p>
+        </div>
+    </div>
+
+    <!-- Our Values -->
+    <div class="col-lg-4 col-md-12 col-sm-12 pt-1">
+        <div class="sx-icon-box-wraper p-a30 center bg-white m-b30">
+            <h3 class="sx-tilte">Our Values</h3>
+            <p>We uphold integrity, safety, and excellence in every project. Guided by teamwork and commitment, 
+                Jamnicant Pty Ltd values strong relationships with clients and ensures every build reflects quality 
+                and professionalism.</p>
+        </div>
+    </div>
+    </div>
+</div>
+
 
     <!-- Why choose Us -->
     <section class="why-choose-us pq-bg-img-1 pt-5 pb-5 mt-3 mb-3">
-        <div class="container pt-3 pb-3 mb-4">
+        <div class="container pt-1 pb-3 mb-4">
             <div class="row align-items-center ">
                 <div class="col-lg-12 wow animated fadeInUp">
                     <div class="pq-section-title pq-style-1 text-center">
@@ -285,7 +388,7 @@
                 <div class="col-lg-12">
                     <div class="divider pq-center-border pq-45"></div>
                 </div>
-                <div class="row">
+                <div class="row mx-1">
                     <div class="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp">
                         <div class="pq-fancy-box pq-style-1">
                                 <h5 class="pq-fancy-box-title">Reliable Expertise</h5>
@@ -349,7 +452,7 @@
                         <h5 class="pq-section-main-title pq-text-white">What Our Clients Say</h5>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 wow animated fadeInLeft">
+                <!-- <div class="col-lg-4 col-md-4 wow animated fadeInLeft">
                     <div class="button-align">
                         <a class="pq-button pq-button-flat" href="#">
                             <div class="pq-button-block">
@@ -359,7 +462,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-12">
                     <div class="divider pq-left-border pq-45"></div>
                 </div>
@@ -372,8 +475,10 @@
                                 <div class="pq-testimonial-info">
                                     <div class="pq-testimonial-content">
                                         <p class="pq-testimonial-description">
-                                        Jamnicant  delivered the house slabs for our residential project with
-                                        precision and durability. The quality of concrete exceeded our expectations.</p>
+                                        "Jamnicant completed our house slab
+                                            foundation with precision and professionalism. Their team was punctual,
+                                            efficient, and the quality of work exceeded our expectations. We couldn't be
+                                            happier with the result and would highly recommend their services."</p>
                                         <div class="pq-testimonial-star">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -388,7 +493,7 @@
                                         <img decoding="async" src="images/testimonial/1.jpg" alt="Testimonial-image">
                                     </div> -->
                                     <div class="pq-testimonial-meta">
-                                        <h5 class="pq-testmonial-title">Olivia Harris</h5> <span>Project Coordinator</span>
+                                        <h5 class="pq-testmonial-title">Sarah Johnson</h5> <span>Homeowner, Berwick</span>
                                     </div>
                                 </div>
                             </div>
@@ -397,8 +502,10 @@
                             <div class="pq-testimonial-box pq-style-3">
                                 <div class="pq-testimonial-info">
                                     <div class="pq-testimonial-content">
-                                        <p class="pq-testimonial-description">Their team constructed our columns and beams with outstanding attention to detail.
-                                        The structure is strong, safe, and built to last.</p>
+                                        <p class="pq-testimonial-description">"We've worked with Jamnicant on multiple
+                                            commercial excavation projects over the past decade. Their expertise in
+                                            earthmoving is unmatched, and they consistently deliver on time and within
+                                            budget. A reliable partner for any construction project."</p>
                                         <div class="pq-testimonial-star">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -411,7 +518,7 @@
                                         <img decoding="async" src="images/testimonial/2.jpg" alt="Testimonial-image">
                                     </div> -->
                                     <div class="pq-testimonial-meta">
-                                        <h5 class="pq-testmonial-title">Liam Andersonh</h5> <span>site manager</span>
+                                        <h5 class="pq-testmonial-title">Michael Thompson</h5> <span>Project Manager, Melbourne Developments</span>
                                     </div>
                                 </div>
                             </div>
@@ -420,8 +527,10 @@
                             <div class="pq-testimonial-box pq-style-3">
                                 <div class="pq-testimonial-info">
                                     <div class="pq-testimonial-content">
-                                        <p class="pq-testimonial-description"> From excavation to the final foundation, Jamnicant Pty. Ltd. provided reliable
-                                        service and timely completion. Highly recommended for commercial projects.</p>
+                                        <p class="pq-testimonial-description">"The paving work Jamnicant completed for
+                                            our community center has held up beautifully over the years. Their attention
+                                            to detail and quality materials made all the difference. Tony and his team
+                                            are true professionals who take pride in their work."</p>
                                         <div class="pq-testimonial-star">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -436,7 +545,7 @@
                                         <img decoding="async" src="images/testimonial/3.jpg" alt="Testimonial-image">
                                     </div> -->
                                     <div class="pq-testimonial-meta">
-                                        <h5 class="pq-testmonial-title">Ethan Williams</h5> <span>project supervisor</span>
+                                        <h5 class="pq-testmonial-title">Lisa Chen</h5> <span>Council Representative, Casey City</span>
                                     </div>
                                 </div>
                             </div>
@@ -458,7 +567,7 @@
                         <h5 class="pq-section-main-title">Construction Services We Offer</h5>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 wow animated fadeInRight">
+                <!-- <div class="col-lg-4 col-md-4 wow animated fadeInRight">
                     <div class="button-align">
                         <a class="pq-button pq-button-flat" href="#">
                             <div class="pq-button-block">
@@ -468,7 +577,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-12">
                     <div class="divider pq-right-border pq-45"></div>
                 </div>
@@ -486,7 +595,7 @@
                             <h5 class="pq-fancy-box-title">House Slabs</h5>
                             <p class="pq-fancy-box-description">Precision concrete slabs for residential and commercial buildings.</p>
                             <div class="pq-btn-container">
-                                <a class="pq-button pq-button-link" href="">
+                                <a class="pq-button pq-button-link" href="services.html?tab=house-slabs">
                                     <div class="pq-button-block">
                                         <div class="pq-svg">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="64.356" height="36.52" viewBox="0 0 64.356 36.52"> <g transform="translate(-6.444 -1.74)"> <g data-name="Group 2"> <circle data-name="Ellipse 2" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1" opacity="0.5"></circle> <circle data-name="Ellipse 3" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1"> </circle> </g> <path data-name="Path 1" d="M49.525,14.265l-.627.779,5.583,4.5H6.444v1h48.02L48.9,24.954l.621.783L56.7,20.044Z" fill="#e6af5d"></path> </g> </svg>
@@ -511,7 +620,7 @@
                             <h5 class="pq-fancy-box-title">Excavation</h5>
                             <p class="pq-fancy-box-description">Safe and efficient earthmoving for foundations and site prep.</p>
                             <div class="pq-btn-container">
-                                <a class="pq-button pq-button-link" href="#">
+                                <a class="pq-button pq-button-link" href="services.html?tab=excavation">
                                     <div class="pq-button-block">
                                         <div class="pq-svg">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="64.356" height="36.52" viewBox="0 0 64.356 36.52"> <g transform="translate(-6.444 -1.74)"> <g data-name="Group 2"> <circle data-name="Ellipse 2" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1" opacity="0.5"></circle> <circle data-name="Ellipse 3" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1"> </circle> </g> <path data-name="Path 1" d="M49.525,14.265l-.627.779,5.583,4.5H6.444v1h48.02L48.9,24.954l.621.783L56.7,20.044Z" fill="#e6af5d"></path> </g> </svg>
@@ -536,7 +645,7 @@
                             <h5 class="pq-fancy-box-title">Footings</h5>
                             <p class="pq-fancy-box-description">Strong footings to ensure a stable foundation for any structure.</p>
                             <div class="pq-btn-container">
-                                <a class="pq-button pq-button-link" href="#">
+                                <a class="pq-button pq-button-link" href="services.html?tab=footings">
                                     <div class="pq-button-block">
                                         <div class="pq-svg">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="64.356" height="36.52" viewBox="0 0 64.356 36.52"> <g transform="translate(-6.444 -1.74)"> <g data-name="Group 2"> <circle data-name="Ellipse 2" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1" opacity="0.5"></circle> <circle data-name="Ellipse 3" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1"> </circle> </g> <path data-name="Path 1" d="M49.525,14.265l-.627.779,5.583,4.5H6.444v1h48.02L48.9,24.954l.621.783L56.7,20.044Z" fill="#e6af5d"></path> </g> </svg>
@@ -561,7 +670,7 @@
                             <h5 class="pq-fancy-box-title">Paving</h5>
                             <p class="pq-fancy-box-description">Durable and aesthetic paving solutions for driveways and walkways.</p>
                             <div class="pq-btn-container">
-                                <a class="pq-button pq-button-link" href="#">
+                                <a class="pq-button pq-button-link" href="services.html?tab=paving">
                                     <div class="pq-button-block">
                                         <div class="pq-svg">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="64.356" height="36.52" viewBox="0 0 64.356 36.52"> <g transform="translate(-6.444 -1.74)"> <g data-name="Group 2"> <circle data-name="Ellipse 2" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1" opacity="0.5"></circle> <circle data-name="Ellipse 3" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1"> </circle> </g> <path data-name="Path 1" d="M49.525,14.265l-.627.779,5.583,4.5H6.444v1h48.02L48.9,24.954l.621.783L56.7,20.044Z" fill="#e6af5d"></path> </g> </svg>
@@ -586,7 +695,7 @@
                             <h5 class="pq-fancy-box-title">Earthworks</h5>
                             <p class="pq-fancy-box-description">Efficient earth moving and grading for construction and landscaping.</p>
                             <div class="pq-btn-container">
-                                <a class="pq-button pq-button-link" href="#">
+                                <a class="pq-button pq-button-link" href="services.html?tab=earthworks">
                                     <div class="pq-button-block">
                                         <div class="pq-svg">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="64.356" height="36.52" viewBox="0 0 64.356 36.52"> <g transform="translate(-6.444 -1.74)"> <g data-name="Group 2"> <circle data-name="Ellipse 2" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1" opacity="0.5"></circle> <circle data-name="Ellipse 3" cx="17" cy="17.76" r="17.76" transform="translate(34.78 2.24)" fill="none" stroke="#e6af5d" stroke-width="1"> </circle> </g> <path data-name="Path 1" d="M49.525,14.265l-.627.779,5.583,4.5H6.444v1h48.02L48.9,24.954l.621.783L56.7,20.044Z" fill="#e6af5d"></path> </g> </svg>
@@ -1412,9 +1521,15 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <ul class="pq-contact">
-                                            <li>
+                                           <li>
                                                 <i class="fas fa-map-marker"></i>
-                                                <span>444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804</span>
+                                                <span>
+                                                    <a href="https://maps.app.goo.gl/hvEY7HhKddspJjEH8" 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer">
+                                                    444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804
+                                                    </a>
+                                                </span>
                                             </li>
                                             <li>
                                                 <a href="tel:0419895835">
@@ -1429,7 +1544,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://www.instagram.com/jamnicant3804/">
+                                                <a href="https://www.instagram.com/jamnicant3804/" target="_blank">
                                                     <i class="fab fa-instagram"></i>
                                                     <span>@jamnicant3804</span>
                                                 </a>
@@ -1450,7 +1565,7 @@
                                 879 680 306</span>
                         </div>
                         <div class="col-md-4 align-self-center">
-                            <span class="pq-copyright">Designed by: <a href="https://uptechwebsolution.com.au/">UpTech
+                            <span class="pq-copyright">Designed by: <a href="https://uptechwebsolution.com.au/" target="_blank">UpTech
                                     Solution</a>.</span>
                         </div>
                     </div>
@@ -1459,7 +1574,90 @@
         </div>
     </footer>
     <!-- Footer -->
+    <!-- Quote Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg animate__animated animate__fadeInDown">
+            <div class="modal-content rounded-4 shadow-lg custom-modal">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold" id="quoteModalLabel">
+                <i class="bi bi-chat-dots-fill me-2 text-primary" ></i>Request a Quote
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="quoteForm" class="p-4 needs-validation" novalidate enctype="multipart/form-data">
+                <div id="formMessage" class="mb-3"></div>
+                <div class="row">
+                <div class="col-md-6" style="max-width: 374px">
+                    <label for="name" class="form-label">Name</label>
+                    <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" required>
+                    <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="max-width: 374px">
+                    <label for="email" class="form-label">Email</label>
+                    <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                </div>
+                <div class="row phone-service-row ">
+                <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone</label>
+                    <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="0400000000" pattern="[0-9]{10}" required>
+                    <div class="invalid-feedback">Please enter a 10-digit phone number.</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
 
+                    <label for="service" class="form-label">Service</label>
+                    <select class="form-select" id="service" name="service" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option>Home Slabs</option>
+                    <option>Excavation</option>
+                    <option>Footings</option>
+                    <option>Paving</option>
+                    <option>Earthworks</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a service.</div>
+                </div>
+                </div>
+                <div class="row project-row">
+                <div class="col-12">
+                    <label for="message" class="form-label">Project Details</label>
+                    <textarea class="form-control" id="message" name="message" rows="3" placeholder="Tell us about your project..." required></textarea>
+                    <div class="invalid-feedback">Please enter project details.</div>
+                </div>
+                </div>
+                <div class="row reference-row">
+                <div class="col-12">
+                    <label for="file" class="form-label">Reference Image (optional)</label>
+                    <input class="form-control" type="file" id="file" name="file" accept=".jpg,.png,.pdf,.doc,.docx">
+                </div>
+                </div>
+                </div>
+                <!-- Cloudflare Turnstile CAPTCHA -->
+                <div class="mt-3" >
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAABm_65qiXbKDXVNR"></div>
+                </div>
+
+                <div class="d-flex justify-content-between" style="margin-top: -0.25rem;">
+                <button type="reset" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                </button>
+                <button type="submit" class="btn btn-primary" style="max-width: 300px">
+                    <i class="bi bi-send-fill me-1"></i> Submit
+                </button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
     <!-- Back To Top -->
     <div id="back-to-top" class="active">
         <a class="top" id="top" href="#top">

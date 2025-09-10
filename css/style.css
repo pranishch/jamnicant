@@ -822,6 +822,23 @@ Blog
 Blog Single Post
 ================================================*/
 
+/* Ensure Get Quote button is visible on all devices */
+/* .pq-btn-container {
+    display: block !important; 
+}
+
+@media (max-width: 767px) {
+    .pq-btn-container {
+        margin-left: 1px;
+        margin-top: 1px;  
+    }
+
+    .pq-btn-container .pq-button {
+        padding: 3px 1px; 
+        font-size: 14px;
+    }
+} */
+
 .pq-single-post-bottom-holder {
     margin: 0;
     padding: 0 0 45px;
@@ -2151,7 +2168,6 @@ header#pq-header .pq-bottom-header .navbar .navbar-nav li.current-menu-item a {
 }
 
 
-
 /*++++++++ Sub Menu Bar ++++++++*/
 
 header#pq-header .pq-bottom-header .navbar .navbar-nav li .sub-menu {
@@ -3102,7 +3118,7 @@ Section Title
 
 .pq-section-title.pq-style-1.text-center {
     padding: 0 15em;
-    margin-bottom: 60px;
+    margin-bottom: 10px;
 }
 
 .pq-section-title.pq-style-1.text-center .pq-section-sub-title {
@@ -3340,7 +3356,7 @@ Sidebar Menu
 }
 
 /*================================================
-Breadcrumb
+breadcrumb
 ================================================*/
 
 .pq-breadcrumb {
@@ -3352,10 +3368,21 @@ Breadcrumb
     background-repeat: no-repeat;
 }
 
-.pq-breadcrumb {
-    background-image: url(../images/Breadcrumb/1.jpg);
+/* .pq-breadcrumb {
+    background-image: url(../images/breadcrumb/1.jpg);
+} */
+.about-breadcrumb{
+    background-image: url(../images/breadcrumb/1.jpg);
 }
-
+/* .service-breadcrumb{
+    background-image: url(../images/service-detail/1.jpg);
+} */
+.gallery-breadcrumb{
+    background-image: url(../images/breadcrumb/3.jpg);
+}
+.contact-breadcrumb{
+    background-image: url(../images/breadcrumb/5.jpg);
+}
 .pq-breadcrumb:before {
     content: '';
     width: 100%;

@@ -22,6 +22,92 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Responsive -->
     <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .p-4{
+            margin-left: 0.95rem;
+            margin-right: -0.65rem;
+        }
+
+        .modal-title{
+            margin-bottom: -3rem !important;
+            margin-left: 0.95rem ;
+        }
+        .form-label{
+            margin-bottom: -1.75rem;
+        }
+        /* Add spacing below Phone & Service row */
+        #quoteForm .row.phone-service-row 
+        {
+            margin-bottom: -1.75rem; /* adjust as needed */
+
+        }
+        #quoteForm .row.project-row 
+        {
+            margin-bottom: -1.75rem; /* adjust as needed */
+        }
+        #quoteForm .row.reference-row 
+        {
+            margin-bottom: -1.75rem; /* adjust as needed */
+        }
+        
+        .input-group .input-group-text,
+        .input-group .form-control {
+            height: 45px;            /* Set equal height */
+            border-radius: 0.375rem; /* Bootstrap default */
+            border: 1px solid #ced4da;
+            margin-bottom: 0rem;    
+
+        }
+       
+        button[type="submit"]{
+            margin-right: 1.2rem !important;
+        }
+        .input-group .input-group-text,
+        .input-group .form-control {
+            height: 45px;            /* Set equal height */
+            border-radius: 0.375rem; /* Bootstrap default */
+            border: 1px solid #ced4da;
+        }
+
+        .input-group .input-group-text {
+            background-color: #f8f9fa; /* optional */
+            display: flex;
+            align-items: center;       /* vertically center icon */
+            justify-content: center;
+            min-width: 45px;           /* make square if needed */
+            padding: 0;                /* remove extra padding */
+        }
+        #quoteModal .form-select {
+            height: 45px;              /* match input-group height */
+            border-radius: 0.375rem;   /* consistent rounded corners */
+            border: 1px solid #ced4da; /* same border as inputs */
+            font-size: 0.95rem;        /* optional: keep text size consistent */
+            padding: 0.375rem 0.75rem; /* adjust padding for vertical centering */
+        }
+
+        .btn-close {
+            box-sizing: content-box;
+            width: 24px;       /* Decreased from ~38px (1cm) to 24px */
+            height: 24px;      /* Same as width for square button */
+            padding: 6px;      /* Decreased proportionally */
+            color: #000;
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center / 16px auto no-repeat;
+            border: 0;
+            border-radius: 4px; /* Slightly rounded corners */
+            opacity: 0.5;
+        }
+        .btn-close:hover {
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center / 16px auto no-repeat !important;
+            opacity: 1; /* Increase opacity for better visibility */
+        }
+
+        .btn-close:focus {
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center / 16px auto no-repeat !important;
+            opacity: 1;
+            outline: 2px solid rgba(0, 0, 0, 0.3); /* Optional: add focus outline */
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
     
@@ -44,13 +130,22 @@
                                 <ul>
                                     <li>
                                         <i class="fas fa-location-dot"></i>
-                                        <span>444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804</span>
+                                        <span>
+                                            <a href="https://maps.app.goo.gl/hvEY7HhKddspJjEH8" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            style="color: #ffffff; text-decoration: none; background-color: transparent;"
+                                            onmouseover="this.style.backgroundColor='transparent';"
+                                            onmouseout="this.style.backgroundColor='transparent';">
+                                            444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804
+                                            </a>
+                                        </span> 
                                     </li>
                                 </ul>
                             </div>
                             <div class="pq-header-social">
                                 <ul>
-                                    <li><a href="https://www.instagram.com/jamnicant3804/"><i
+                                    <li><a href="https://www.instagram.com/jamnicant3804/" target="_blank"><i
                                                 class="fab fa-instagram"></i></a></li>
                                 </ul>
                             </div>
@@ -124,7 +219,7 @@
                                 </div>
                             </div>
                             <div class="pq-btn-container">
-                                <a href="#" class="pq-button pq-button-flat">
+                                <a class="pq-button pq-button-flat" data-bs-toggle="modal" data-bs-target="#quoteModal">
                                     <div class="pq-button-block">
                                         <span class="pq-button-text">Get Quote</span>
                                         <span class="pq-button-line-right"></span>
@@ -145,8 +240,8 @@
     </header>
     <!-- Header -->
 
-    <!-- Breadcrumb -->
-    <div class="pq-breadcrumb">
+    <!-- breadcrumb -->
+    <div class="pq-breadcrumb contact-breadcrumb">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -167,7 +262,7 @@
             </div>
         </div>
     </div>
-    <!-- Breadcrumb -->
+    <!-- breadcrumb -->
 
     <!-- Contact Us -->
     <section class="contact-us pb-xl-0">
@@ -234,13 +329,13 @@
                         <h5 class="pq-section-main-title">How Can We Help You ?</h5>
                         <p class="pq-section-description">Please feel free to get in touch using the form below. We’d love to hear for you.</p>
                     </div>
-                    <form action="#" class="pq-contact-form">
+                    <form action="contact.php" method="POST" class="pq-contact-form">
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="text" name="your-name" placeholder="Your Name">
                             </div>
                             <div class="col-md-6">
-                                <input type="email" name="your-gender" placeholder="Email">
+                                <input type="email" name="your-email" placeholder="Email">
                             </div>
                             <div class="col-md-6">
                                 <input type="text" name="phone-number" placeholder="Phone Number">
@@ -252,11 +347,11 @@
                                 <textarea name="your-message" cols="40" rows="10" placeholder="Write Your Message"></textarea>
                             </div>
                             <div class="col-md-12">
-                                <a class="pq-button" href="#">
+                                <button type="submit" class="pq-button">
                                     <div class="pq-button-block">
                                         <span class="pq-button-text me-0">SEND NOW</span>
                                     </div>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -365,7 +460,13 @@
                                         <ul class="pq-contact">
                                             <li>
                                                 <i class="fas fa-map-marker"></i>
-                                                <span>444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804</span>
+                                                <span>
+                                                    <a href="https://maps.app.goo.gl/hvEY7HhKddspJjEH8" 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer">
+                                                    444/454 Belgrave Hallam Road, Narre Warren North, Vic 3804
+                                                    </a>
+                                                </span>
                                             </li>
                                             <li>
                                                 <a href="tel:0419895835">
@@ -380,7 +481,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://www.instagram.com/jamnicant3804/">
+                                                <a href="https://www.instagram.com/jamnicant3804/" target="_blank">
                                                     <i class="fab fa-instagram"></i>
                                                     <span>@jamnicant3804</span>
                                                 </a>
@@ -401,7 +502,7 @@
                                 879 680 306</span>
                         </div>
                         <div class="col-md-4 align-self-center">
-                            <span class="pq-copyright">Designed by: <a href="https://uptechwebsolution.com.au/">UpTech
+                            <span class="pq-copyright">Designed by: <a href="https://uptechwebsolution.com.au/" target="_blank">UpTech
                                     Solution</a>.</span>
                         </div>
                     </div>
@@ -410,7 +511,90 @@
         </div>
     </footer>
     <!-- Footer -->
+    <!-- Quote Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg animate__animated animate__fadeInDown">
+            <div class="modal-content rounded-4 shadow-lg custom-modal">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold" id="quoteModalLabel">
+                <i class="bi bi-chat-dots-fill me-2 text-primary" ></i>Request a Quote
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="quoteForm" class="p-4 needs-validation" novalidate enctype="multipart/form-data">
+                <div id="formMessage" class="mb-3"></div>
+                <div class="row">
+                <div class="col-md-6" style="max-width: 374px">
+                    <label for="name" class="form-label">Name</label>
+                    <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" required>
+                    <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="max-width: 374px">
+                    <label for="email" class="form-label">Email</label>
+                    <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-envelope"></i></span>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                </div>
+                <div class="row phone-service-row ">
+                <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone</label>
+                    <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="0400000000" pattern="[0-9]{10}" required>
+                    <div class="invalid-feedback">Please enter a 10-digit phone number.</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
 
+                    <label for="service" class="form-label">Service</label>
+                    <select class="form-select" id="service" name="service" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option>Home Slabs</option>
+                    <option>Excavation</option>
+                    <option>Footings</option>
+                    <option>Paving</option>
+                    <option>Earthworks</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a service.</div>
+                </div>
+                </div>
+                <div class="row project-row">
+                <div class="col-12">
+                    <label for="message" class="form-label">Project Details</label>
+                    <textarea class="form-control" id="message" name="message" rows="3" placeholder="Tell us about your project..." required></textarea>
+                    <div class="invalid-feedback">Please enter project details.</div>
+                </div>
+                </div>
+                <div class="row reference-row">
+                <div class="col-12">
+                    <label for="file" class="form-label">Reference Image (optional)</label>
+                    <input class="form-control" type="file" id="file" name="file" accept=".jpg,.png,.pdf,.doc,.docx">
+                </div>
+                </div>
+                </div>
+                <!-- Cloudflare Turnstile CAPTCHA -->
+                <div class="mt-3" >
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAABm_65qiXbKDXVNR"></div>
+                </div>
+
+                <div class="d-flex justify-content-between" style="margin-top: -0.25rem;">
+                <button type="reset" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                </button>
+                <button type="submit" class="btn btn-primary" style="max-width: 300px">
+                    <i class="bi bi-send-fill me-1"></i> Submit
+                </button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
     <!-- Back To Top -->
     <div id="back-to-top" class="active">
         <a class="top" id="top" href="#top">

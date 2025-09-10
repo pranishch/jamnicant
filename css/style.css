@@ -1134,7 +1134,7 @@ Dummy data
     position: relative;
     word-wrap: break-word;
     padding: 0 0 0 15px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 .widget ul li a:hover {
@@ -3101,7 +3101,7 @@ footer#pq-footer .widget ul.pq-contact li a:before {
 footer#pq-footer .widget ul.pq-contact li i {
     margin-right: 15px;
     color: var(--primary-color);
-    display: none;
+    /* display: none; */
 }
 
 footer#pq-footer .widget select {
